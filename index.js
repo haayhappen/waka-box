@@ -33,12 +33,14 @@ async function updateGist(stats) {
     const line = [
       name.padEnd(11),
       time.padStart(14) + " ",
-      unicodeProgressBar(percent + 15),
+      unicodeProgressBar(percent),
       String(percent.toFixed(1)).padStart(5) + "%"
     ];
 
     lines.push(line.join(" "));
   }
+
+  console.log(lines.join("\n"));
 
   try {
     // Get original filename to update that same file
@@ -76,7 +78,7 @@ const bar_styles = [
   "⚪⚫"
 ];
 
-function unicodeProgressBar(p, style = 7, min_size = 20, max_size = 20) {
+function unicodeProgressBar(p, style = 8, min_size = 20, max_size = 20) {
   let d;
   let full;
   let m;
